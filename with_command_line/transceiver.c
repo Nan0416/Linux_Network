@@ -37,7 +37,11 @@ int receiver(char * receiver_ip, int receiverID){
 	
 	struct sockaddr_in receiver;
 	receiver.sin_family = AF_INET;
-	receiver.sin_addr.s_addr = inet_addr(receiver_ip);
+	if(receiver_ip != NULL){
+		receiver.sin_addr.s_addr = inet_addr(receiver_ip);
+	}else{
+		receiver.sin_addr.s_addr = htonl(INADDR_ANY);
+	}
 	receiver.sin_port = htons((short)PORT);
 	int sock = socket(AF_INET, SOCK_STREAM, 0); // tcp socket
 	if(bind(sock, (struct sockaddr *)&receiver, sizeof(struct sockaddr_in)) == -1){

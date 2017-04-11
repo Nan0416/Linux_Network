@@ -21,7 +21,7 @@ static struct argp_option options[] = {
 	{"sniff",      0 , 0,      0,  "auto sniff ip address used in sender mode", 0},
 	{"file",      'f', "Filename",      0,  "the file to be sent", 0},
 	{"startip",    1 , "START IP",      0, "sniffing ip range start, inclusive", 0},
-	{"endip",      2 , "END IP",        0, "sniffing ip range end, exclusive", 0}};
+	{"endip",      2 , "END IP",        0, "sniffing ip range end, exclusive", 0}, {0}};
 
 /* Used by main to communicate with parse_opt. */
 typedef struct arguments
